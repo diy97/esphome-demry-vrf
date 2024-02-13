@@ -59,7 +59,7 @@ namespace esphome {
 
       data[CMD_IDX_TARGET_TEMP] = this->target_temperature;
 
-      data[9] = data[0] + data[1] + data[2] + data[3] + data[4] + data[5];
+      data[9] = data[0] + data[1] + data[2] + data[3] + data[4] + data[5] - 0x03;
 
       this->uart_->write_array(data, sizeof(data));
       ESP_LOGD(TAG, "receive control cmd, send %x:%x:%x:%x:%x:%x:%x:%x:%x:%x",
